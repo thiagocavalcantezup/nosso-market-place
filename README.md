@@ -1,4 +1,4 @@
-# Nosso Spotify
+# Nosso Sistema do Market Place
 
 O objetivo deste projeto é que as atividades do `Treinamento de CRUD e Relacionamentos` 
 
