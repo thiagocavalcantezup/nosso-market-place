@@ -46,4 +46,12 @@ public class Produto {
         return id;
     }
 
+    public boolean isStatusInativo() {
+        return status.equals(StatusProduto.INATIVO);
+    }
+
+    public void setStatus(StatusProduto status) {
+        this.status = status;
+    }
+
 }
