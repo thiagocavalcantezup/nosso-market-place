@@ -1,10 +1,18 @@
 package br.com.zup.edu.marketplace.model;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Produto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,7 +25,7 @@ public class Produto {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private StatusProduto status=StatusProduto.PENDENTE;
+    private StatusProduto status = StatusProduto.PENDENTE;
 
     @Column(nullable = false)
     private BigDecimal preco;
@@ -32,10 +40,10 @@ public class Produto {
      * @deprecated construtor para uso exclusivo do Hibernate
      */
     @Deprecated
-    public Produto() {
-    }
+    public Produto() {}
 
     public Long getId() {
         return id;
     }
+
 }

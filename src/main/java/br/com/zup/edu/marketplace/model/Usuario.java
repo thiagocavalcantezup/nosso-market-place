@@ -1,9 +1,14 @@
 package br.com.zup.edu.marketplace.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,13 +32,13 @@ public class Usuario {
     }
 
     /**
-     * @deprecated  construtor de uso exclusivo do Hibernate
+     * @deprecated construtor de uso exclusivo do Hibernate
      */
     @Deprecated
-    public Usuario() {
-    }
+    public Usuario() {}
 
     public Long getId() {
         return id;
     }
+
 }
