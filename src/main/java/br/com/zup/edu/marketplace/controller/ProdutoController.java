@@ -42,7 +42,7 @@ public class ProdutoController {
         }
 
         throw new ResponseStatusException(
-            HttpStatus.NOT_FOUND, "Impossível remover um produto que não está inativo."
+            HttpStatus.UNPROCESSABLE_ENTITY, "Impossível remover um produto que não está inativo."
         );
     }
 
