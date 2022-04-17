@@ -10,6 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
 @Entity
 public class Produto {
 
@@ -42,12 +45,27 @@ public class Produto {
     @Deprecated
     public Produto() {}
 
+    public void atualizar(String descricao) {
+        if (!isPendente()) {
+            throw new ResponseStatusException(
+                HttpStatus.UNPROCESSABLE_ENTITY,
+                "Impossível atualizar o produto. Ele não está com o status pendente."
+            );
+        }
+
+        this.descricao = descricao;
+    }
+
     public Long getId() {
         return id;
     }
 
-    public boolean isStatusInativo() {
+    public boolean isInativo() {
         return status.equals(StatusProduto.INATIVO);
+    }
+
+    public boolean isPendente() {
+        return status.equals(StatusProduto.PENDENTE);
     }
 
     public void setStatus(StatusProduto status) {
