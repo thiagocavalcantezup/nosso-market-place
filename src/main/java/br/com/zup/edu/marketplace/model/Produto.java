@@ -72,4 +72,20 @@ public class Produto {
         this.status = status;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public StatusProduto getStatus() {
+        return status;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
 }

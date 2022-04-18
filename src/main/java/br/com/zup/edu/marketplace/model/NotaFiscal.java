@@ -1,5 +1,6 @@
 package br.com.zup.edu.marketplace.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,5 +34,19 @@ public class NotaFiscal {
      */
     @Deprecated
     public NotaFiscal() {}
+
+    public BigDecimal getValorFinal() {
+        return itens.stream()
+                    .map(Produto::getPreco)
+                    .reduce(new BigDecimal("0.00"), (total, preco) -> total.add(preco));
+    }
+
+    public Usuario getDestinatario() {
+        return destinatario;
+    }
+
+    public List<Produto> getItens() {
+        return itens;
+    }
 
 }
