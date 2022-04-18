@@ -26,7 +26,7 @@ public class NotaFiscalController {
 
     @GetMapping("/{id}")
     public ResponseEntity<NotaFiscalResponseDTO> show(@PathVariable Long id) {
-        NotaFiscal notaFiscal = notaFiscalRepository.findById(id)
+        NotaFiscal notaFiscal = notaFiscalRepository.findWithItensById(id)
                                                     .orElseThrow(
                                                         () -> new ResponseStatusException(
                                                             HttpStatus.NOT_FOUND,
