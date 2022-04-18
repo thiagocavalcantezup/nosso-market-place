@@ -25,10 +25,11 @@ public class Usuario {
     @Column(nullable = false)
     private String telefone;
 
-    public Usuario(String nome, String cpf, String endereco) {
+    public Usuario(String nome, String cpf, String endereco, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
+        this.telefone = telefone;
     }
 
     /**

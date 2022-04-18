@@ -1,11 +1,13 @@
 package br.com.zup.edu.marketplace.model;
 
+import java.math.BigDecimal;
+
 public class NotaFiscalProdutoResponseDTO {
 
     private String titulo;
     private String descricao;
     private String status;
-    private String preco;
+    private BigDecimal preco;
 
     public NotaFiscalProdutoResponseDTO() {}
 
@@ -13,7 +15,7 @@ public class NotaFiscalProdutoResponseDTO {
         this.titulo = produto.getTitulo();
         this.descricao = produto.getDescricao();
         this.status = produto.getStatus().name();
-        this.preco = produto.getPreco().toString();
+        this.preco = produto.getPreco();
     }
 
     public String getTitulo() {
@@ -28,7 +30,7 @@ public class NotaFiscalProdutoResponseDTO {
         return status;
     }
 
-    public String getPreco() {
+    public BigDecimal getPreco() {
         return preco;
     }
 
