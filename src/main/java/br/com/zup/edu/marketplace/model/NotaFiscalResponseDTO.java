@@ -1,7 +1,6 @@
 package br.com.zup.edu.marketplace.model;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -11,7 +10,7 @@ public class NotaFiscalResponseDTO {
     private String enderecoDestinatario;
     private String telefoneDestinatario;
     private String cpfDestinatario;
-    private Set<NotaFiscalProdutoResponseDTO> itens = new HashSet<>();
+    private Set<NotaFiscalProdutoResponseDTO> itens;
     private BigDecimal valorFinal;
 
     public NotaFiscalResponseDTO() {}

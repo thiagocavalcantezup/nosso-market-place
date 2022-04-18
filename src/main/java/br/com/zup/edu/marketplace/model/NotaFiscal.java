@@ -36,9 +36,7 @@ public class NotaFiscal {
     public NotaFiscal() {}
 
     public BigDecimal getValorFinal() {
-        return itens.stream()
-                    .map(Produto::getPreco)
-                    .reduce(new BigDecimal("0.00"), (total, preco) -> total.add(preco));
+        return itens.stream().map(Produto::getPreco).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public Usuario getDestinatario() {
