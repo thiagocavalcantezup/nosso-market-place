@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import br.com.zup.edu.marketplace.exception.ProdutoNaoEncontradoException;
+
 @Entity
 public class Usuario {
 
@@ -53,7 +55,11 @@ public class Usuario {
     }
 
     public void remover(Produto produto) {
-        listaDeDesejos.remove(produto);
+        if (!listaDeDesejos.remove(produto)) {
+            throw new ProdutoNaoEncontradoException(
+                "Não existe um produto na lista de desejos com o id fornecido."
+            );
+        }
     }
 
     public Long getId() {
