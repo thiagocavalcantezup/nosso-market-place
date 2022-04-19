@@ -52,7 +52,7 @@ public class UsuarioController {
 
         usuario.adicionar(produto);
 
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 }
