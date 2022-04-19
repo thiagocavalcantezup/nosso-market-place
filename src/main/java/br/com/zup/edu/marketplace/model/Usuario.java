@@ -1,10 +1,16 @@
 package br.com.zup.edu.marketplace.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Usuario {
@@ -24,6 +30,10 @@ public class Usuario {
 
     @Column(nullable = false)
     private String telefone;
+
+    @ManyToMany
+    @JoinTable(name = "usuario_produto", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "produto_id"))
+    private Set<Produto> listaDeDesejos = new HashSet<>();
 
     public Usuario(String nome, String cpf, String endereco, String telefone) {
         this.nome = nome;
@@ -56,6 +66,10 @@ public class Usuario {
 
     public String getTelefone() {
         return telefone;
+    }
+
+    public Set<Produto> getListaDeDesejos() {
+        return listaDeDesejos;
     }
 
 }
