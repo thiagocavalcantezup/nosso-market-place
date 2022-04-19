@@ -50,7 +50,7 @@ public class UsuarioController {
                                                )
                                            );
 
-        usuario.getListaDeDesejos().add(produto);
+        usuario.adicionar(produto);
 
         return ResponseEntity.noContent().build();
     }

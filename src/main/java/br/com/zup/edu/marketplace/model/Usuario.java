@@ -48,6 +48,10 @@ public class Usuario {
     @Deprecated
     public Usuario() {}
 
+    public void adicionar(Produto produto) {
+        listaDeDesejos.add(produto);
+    }
+
     public Long getId() {
         return id;
     }
