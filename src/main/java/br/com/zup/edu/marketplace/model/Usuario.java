@@ -52,6 +52,10 @@ public class Usuario {
         listaDeDesejos.add(produto);
     }
 
+    public void remover(Produto produto) {
+        listaDeDesejos.remove(produto);
+    }
+
     public Long getId() {
         return id;
     }
