@@ -2,6 +2,10 @@ package br.com.zup.edu.marketplace.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import static br.com.zup.edu.marketplace.model.StatusProduto.*;
 
 @Entity
 public class Produto {
@@ -17,7 +21,12 @@ public class Produto {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private StatusProduto status=StatusProduto.PENDENTE;
+    private StatusProduto status;
+
+    @Column(nullable = false)
+    private LocalDateTime criadoEm;
+
+    private LocalDateTime atualizadoEm;
 
     @Column(nullable = false)
     private BigDecimal preco;
@@ -26,6 +35,16 @@ public class Produto {
         this.titulo = titulo;
         this.descricao = descricao;
         this.preco = preco;
+        this.status = PENDENTE;
+        this.criadoEm = LocalDateTime.now();
+    }
+
+    public Produto(String titulo, String descricao, BigDecimal preco, StatusProduto status, LocalDateTime criadoEm) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.status = status;
+        this.criadoEm=criadoEm;
     }
 
     /**
@@ -38,4 +57,19 @@ public class Produto {
     public Long getId() {
         return id;
     }
+
+    public StatusProduto getStatus() {
+        return status;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void inativar() {
+        this.status = INATIVO;
+        this.atualizadoEm = LocalDateTime.now();
+    }
+
+
 }
